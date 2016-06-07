@@ -38,9 +38,9 @@
 - (void)viewDidLoad {
     
     NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
-    NSString *kClientID = @"34601";//[info objectForKey:@"CLIENT_ID"];
-    NSString *kApiKey = @"QdWKDSInhx";//[info objectForKey:@"API_KEY"];
-    NSString *kApiSecret = @"ffd3d08045769161b71848f7d637d788";//[info objectForKey:@"API_SECRET"];
+    NSString *kClientID = [info objectForKey:@"CLIENT_ID"];
+    NSString *kApiKey = [info objectForKey:@"API_KEY"];
+    NSString *kApiSecret = [info objectForKey:@"API_SECRET"];
     bitsoAPI = [BitsoAPI APIWithClientID:kClientID APIKey:kApiKey APISecret:kApiSecret];
     
     if ([incomingSegue isEqualToString:@"Open Orders"]) {
