@@ -7,7 +7,7 @@
 //
 
 
-#import "MTLModel.h"
+#import <Mantle/MTLModel.h>
 #import <Mantle/Mantle.h>
 
 

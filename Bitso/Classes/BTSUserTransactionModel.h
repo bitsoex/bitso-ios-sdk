@@ -6,7 +6,7 @@
 //  Copyright © 2016 Bitso SAPI de CV. All rights reserved.
 //
 
-#import "MTLModel.h"
+#import <Mantle/MTLModel.h>
 #import <Mantle/Mantle.h>
 
 @interface BTSUserTransactionModel : MTLModel <MTLJSONSerializing>
