@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 Bitcoin Wallet and Exchange integration for iOS apps with Bitso.
                        DESC
 
-  s.homepage         = 'https://github.com/mariorz/Bitso-iOS-SDK'
+  s.homepage         = 'https://github.com/bitsoex/bitso-ios-sdk'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Mario Romero' => 'mario@bitso.com' }
-  s.source           = { :git => 'https://github.com/mariorz/Bitso-iOS-SDK.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/bitsoex/bitso-ios-sdk.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/bitsoex'
 
   s.ios.deployment_target = '8.0'
