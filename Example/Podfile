@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'Bitso_Example' do
+  pod 'Bitso', :path => '../'
+
+  target 'Bitso_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+  pod 'Expecta'
+  pod 'Mantle'
+  pod 'AFNetworking'
+  end
+end

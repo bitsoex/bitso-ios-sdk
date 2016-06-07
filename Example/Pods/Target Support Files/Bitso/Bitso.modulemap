@@ -1,0 +1,6 @@
+framework module Bitso {
+  umbrella header "Bitso-umbrella.h"
+
+  export *
+  module * { export * }
+}

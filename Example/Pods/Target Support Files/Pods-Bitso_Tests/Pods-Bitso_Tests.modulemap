@@ -1,0 +1,6 @@
+framework module Pods_Bitso_Tests {
+  umbrella header "Pods-Bitso_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_Bitso_Example {
+  umbrella header "Pods-Bitso_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
