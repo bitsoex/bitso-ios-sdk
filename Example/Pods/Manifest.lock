@@ -21,6 +21,19 @@ PODS:
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
+  - OHHTTPStubs (5.1.0):
+    - OHHTTPStubs/Default (= 5.1.0)
+  - OHHTTPStubs/Core (5.1.0)
+  - OHHTTPStubs/Default (5.1.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.1.0)
   - Specta (1.0.5)
 
 DEPENDENCIES:
@@ -28,6 +41,7 @@ DEPENDENCIES:
   - Bitso (from `../`)
   - Expecta
   - Mantle
+  - OHHTTPStubs
   - Specta
 
 EXTERNAL SOURCES:
@@ -36,11 +50,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Bitso: 5bbe4d9742a02289a5f642dcbcfc9671d91e4b74
+  Bitso: 1c6e94050e11adb2b76b04b88bc6abb513f91528
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
+  OHHTTPStubs: 592f74439d2d72615115cf99a954237a3fbe26e5
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
 
-PODFILE CHECKSUM: 2e50751ca2c30ec2d563c6861c266803b306ef96
+PODFILE CHECKSUM: 460251c5f229c355858b59a856cb20f9ff186241
 
 COCOAPODS: 1.0.0

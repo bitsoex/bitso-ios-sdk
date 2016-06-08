@@ -23,6 +23,11 @@
 		C849453C1D0779750005B915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C849453B1D0779750005B915 /* Main.storyboard */; };
 		C849453F1D0779800005B915 /* BTSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C849453E1D0779800005B915 /* BTSMasterViewController.m */; };
 		C84945421D077A230005B915 /* BTSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C84945411D077A230005B915 /* BTSAppDelegate.m */; };
+		C849DD1F1D08CD75005F41EA /* ticker.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD1E1D08CD75005F41EA /* ticker.json */; };
+		C849DD201D08CF29005F41EA /* ticker.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD1E1D08CD75005F41EA /* ticker.json */; };
+		C849DD221D08D6CC005F41EA /* orderbook.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD211D08D6CC005F41EA /* orderbook.json */; };
+		C849DD231D08D6CC005F41EA /* orderbook.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD211D08D6CC005F41EA /* orderbook.json */; };
+		C849DD251D08D89A005F41EA /* transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD241D08D89A005F41EA /* transactions.json */; };
 		C89EE0621D074CC300B0568B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89EE0611D074CC300B0568B /* AFNetworking.framework */; };
 		C89EE0641D074CE300B0568B /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89EE0631D074CE300B0568B /* Mantle.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +71,9 @@
 		C849453E1D0779800005B915 /* BTSMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSMasterViewController.m; sourceTree = "<group>"; };
 		C84945401D077A230005B915 /* BTSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSAppDelegate.h; sourceTree = "<group>"; };
 		C84945411D077A230005B915 /* BTSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSAppDelegate.m; sourceTree = "<group>"; };
+		C849DD1E1D08CD75005F41EA /* ticker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ticker.json; sourceTree = "<group>"; };
+		C849DD211D08D6CC005F41EA /* orderbook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderbook.json; sourceTree = "<group>"; };
+		C849DD241D08D89A005F41EA /* transactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions.json; sourceTree = "<group>"; };
 		C89EE0611D074CC300B0568B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
 		C89EE0631D074CE300B0568B /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = "Pods/../build/Debug-iphoneos/Mantle/Mantle.framework"; sourceTree = "<group>"; };
 		EDBA9CCBDD7857F967739CAE /* Pods-Bitso_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitso_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bitso_Tests/Pods-Bitso_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +181,9 @@
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C849DD241D08D89A005F41EA /* transactions.json */,
+				C849DD211D08D6CC005F41EA /* orderbook.json */,
+				C849DD1E1D08CD75005F41EA /* ticker.json */,
 				6003F5B7195388D20070C39A /* Tests-Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
 				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
@@ -285,6 +296,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C849453C1D0779750005B915 /* Main.storyboard in Resources */,
+				C849DD1F1D08CD75005F41EA /* ticker.json in Resources */,
+				C849DD221D08D6CC005F41EA /* orderbook.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -294,6 +307,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C849DD201D08CF29005F41EA /* ticker.json in Resources */,
+				C849DD231D08D6CC005F41EA /* orderbook.json in Resources */,
+				C849DD251D08D89A005F41EA /* transactions.json in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

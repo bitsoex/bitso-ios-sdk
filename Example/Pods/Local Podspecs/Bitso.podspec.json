@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "Bitso iOS SDK",
   "description": "Bitcoin Wallet and Exchange integration for iOS apps with Bitso.",
-  "homepage": "https://github.com/mariorz/Bitso-iOS-SDK",
+  "homepage": "https://github.com/bitsoex/bitso-ios-sdk",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "Mario Romero": "mario@bitso.com"
   },
   "source": {
-    "git": "https://github.com/mariorz/Bitso-iOS-SDK.git",
+    "git": "https://github.com/bitsoex/bitso-ios-sdk.git",
     "tag": "0.1.0"
   },
   "platforms": {

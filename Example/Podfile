@@ -5,8 +5,10 @@ target 'Bitso_Example' do
 
   target 'Bitso_Tests' do
     inherit! :search_paths
-
     pod 'Specta'
+    pod 'Bitso', :path => '../'
+    pod 'OHHTTPStubs'
+    
   pod 'Expecta'
   pod 'Mantle'
   pod 'AFNetworking'

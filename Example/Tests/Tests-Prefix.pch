@@ -4,5 +4,7 @@
 
   @import Specta;
   @import Expecta;
+  @import Bitso;
+  @import OHHTTPStubs;
 
 #endif

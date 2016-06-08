@@ -24,6 +24,7 @@
     return @{
              @"_amount": @"amount",
              @"amount": @"amount",
+             @"_price": @"price",
              @"price": @"price",
              @"side": @"side",
              @"tid": @"tid",
@@ -44,12 +45,24 @@
     return [NSDecimalNumber decimalNumberWithString:self._amount];
 }
 
+- (NSDecimalNumber *)price {
+    return [NSDecimalNumber decimalNumberWithString:self._price];
+}
+
 
 + (NSValueTransformer *)amountJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^(NSString *amountstr, BOOL *success, NSError **error){
         return [NSDecimalNumber decimalNumberWithString:amountstr];
     } reverseBlock:^(NSDecimalNumber *amount, BOOL *success, NSError **error) {
         return [amount stringValue];
+    }];
+}
+
++ (NSValueTransformer *)priceJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^(NSString *pricestr, BOOL *success, NSError **error){
+        return [NSDecimalNumber decimalNumberWithString:pricestr];
+    } reverseBlock:^(NSDecimalNumber *price, BOOL *success, NSError **error) {
+        return [price stringValue];
     }];
 }
 
