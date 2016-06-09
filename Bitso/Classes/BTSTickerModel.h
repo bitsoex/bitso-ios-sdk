@@ -2,7 +2,7 @@
 //  TickerModel.h
 //  BitsoExampleApp
 //
-//  Created by Mario Romero Zavala on 5/25/16.
+//  Created by Mario Romero Zavala Zavala on 5/25/16.
 //  Copyright © 2016 Bitso SAPI de CV. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  BalanceModel.m
 //  BitsoExampleApp
 //
-//  Created by Mario Romero Zavala on 5/26/16.
+//  Created by Mario Romero Zavala Zavala on 5/26/16.
 //  Copyright © 2016 Bitso SAPI de CV. All rights reserved.
 //
 

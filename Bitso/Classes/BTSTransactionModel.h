@@ -2,7 +2,7 @@
 //  TransactionModel.h
 //  BitsoExampleApp
 //
-//  Created by Mario Romero Zavala on 5/16/16.
+//  Created by Mario Romero Zavala Zavala on 5/16/16.
 //  Copyright © 2016 Bitso SAPI de CV. All rights reserved.
 //
 

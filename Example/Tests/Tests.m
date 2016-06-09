@@ -2,8 +2,8 @@
 //  BitsoTests.m
 //  BitsoTests
 //
-//  Created by Mario Romero on 06/07/2016.
-//  Copyright (c) 2016 Mario Romero. All rights reserved.
+//  Created by Mario Romero Zavala on 06/07/2016.
+//  Copyright © 2016 Bitso SAPI de CV. All rights reserved.
 //
 
 // https://github.com/Specta/Specta
