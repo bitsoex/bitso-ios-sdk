@@ -30,6 +30,7 @@
              @"status": @"status",
              @"created": @"created",
              @"updated": @"updated",
+             @"datetime": @"datetime",
              @"_amount": @"amount",
              @"amount": @"amount",
              @"_price": @"price",
@@ -46,6 +47,14 @@
 }
 
 + (NSValueTransformer *)updatedJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
+        return [self.dateFormatter dateFromString:dateString];
+    } reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
+        return [self.dateFormatter stringFromDate:date];
+    }];
+}
+
++ (NSValueTransformer *)datetimeJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
         return [self.dateFormatter dateFromString:dateString];
     } reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {

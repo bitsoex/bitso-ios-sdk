@@ -23,6 +23,8 @@
 
 @property (nonatomic, copy) NSDate *created;
 @property (nonatomic, copy) NSDate *updated;
+@property (nonatomic, copy) NSDate *datetime;
+
 
 
 @end

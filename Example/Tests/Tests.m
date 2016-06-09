@@ -153,12 +153,12 @@ describe(@"private API tests", ^{
                                                     statusCode:200 headers:@{@"Content-Type":@"application/json"}];
         }];
         
-        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        /*[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
             return [request.URL.path isEqualToString:@"/v2/bitcoin_deposit_address"];
         } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
             return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"btcdeposit.json",self.class)
-                                                    statusCode:200 headers:@{@"Content-Type":@"application/json"}];
-        }];
+                                                    statusCode:200 headers:@{@"Content-Type":@"text/plain"}];
+        }];*/
 
         
     });
@@ -230,7 +230,7 @@ describe(@"private API tests", ^{
                     expect(order.oid).to.equal(@"543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v");
                     expect(order.amount).to.beKindOf([NSDecimalNumber class]);
                     expect(order.amount).to.equal(0.01000000);
-                    //expect(order.created).to.beKindOf([NSDate class]); //FIX
+                    expect(order.datetime).to.beKindOf([NSDate class]); 
                     expect(order.price).to.equal(5600.00);
                     done();
                 });
@@ -249,7 +249,7 @@ describe(@"private API tests", ^{
                     expect(order.oid).to.equal(@"543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v");
                     expect(order.amount).to.beKindOf([NSDecimalNumber class]);
                     expect(order.amount).to.equal(0.01000000);
-                    expect(order.created).to.beKindOf([NSDate class]); //FIX
+                    expect(order.created).to.beKindOf([NSDate class]);
                     expect(order.price).to.equal(5600.00);
                     done();
                 });
@@ -263,10 +263,10 @@ describe(@"private API tests", ^{
     
     it(@"will get btc deposit address", ^{
         waitUntil(^(DoneCallback done) {
-            [bitsoAPI getBitcoinDepositAddressWithSuccessBlock:^(NSString *responseModel) {
+            [bitsoAPI getBitcoinDepositAddressWithSuccessBlock:^(NSString *response) {
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    expect(response).to.beKindOf([NSString class]);
                     //expect(response).to.equal(@"3CaPt93nYFzapDHMk6zZsXqiD8dJqKjWvb");
-                    expect(@"1").to.equal(@"1");
                     done();
                 });
             } failureBlock:^(NSError *error) {

@@ -288,10 +288,9 @@ static NSString *const kBankWithdrawalPath = @"/v2/spei_withdrawal";
 }
 
 - (NSURLSessionDataTask *)getBitcoinDepositAddressWithSuccessBlock:(void (^)(NSString *responseModel))success failureBlock:(void (^)(NSError *error))failure{
-    
 
     BTSRequestModel *requestModel = [BTSRequestModel requestModelWithClientID:self.clientID APIKey:self.APIKey APISecret:self.APISecret];
-
+    
     NSDictionary *parameters = [MTLJSONAdapter JSONDictionaryFromModel:requestModel error:nil];
     NSMutableDictionary *parametersWithKey = [[NSMutableDictionary alloc] initWithDictionary:parameters];
     return [self POST:kBTCDepositAddressPath parameters:parametersWithKey progress:nil
@@ -300,6 +299,7 @@ static NSString *const kBankWithdrawalPath = @"/v2/spei_withdrawal";
                   success(btcaddress);
                   
               } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                  NSLog(@"BitcoinDeposit error: %@", error);
                   failure(error);
               }];
 }
