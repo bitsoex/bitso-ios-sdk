@@ -14,7 +14,6 @@
 #import "BTSBalanceModel.h"
 #import "BTSUserTransactionModel.h"
 #import "BTSOrderModel.h"
-#import "BTSPublicOrderModel.h"
 #import "BTSRequestModel.h"
 
 
