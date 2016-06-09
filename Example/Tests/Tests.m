@@ -8,10 +8,6 @@
 
 // https://github.com/Specta/Specta
 
-//#import "BitsoAPI.h"
-
-
-
 
 SpecBegin(InitialSpecs)
 
@@ -45,8 +41,6 @@ describe(@"public API tests", ^{
                                                     statusCode:200 headers:@{@"Content-Type":@"application/json"}];
         }];
 
-        
-
     });
     
     it(@"will get ticker", ^{
@@ -75,11 +69,11 @@ describe(@"public API tests", ^{
         waitUntil(^(DoneCallback done) {
             [bitsoAPI getOrderBook:@"btc_mxn" withGrouping:YES successBlock:^(BTSOrderBookModel *orderbook) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    expect(orderbook.asks[0][0]).to.beKindOf([NSString class]);
-                    expect(orderbook.asks[0][0]).to.equal(@"5632.24"); // FIX: should be a nsdecimalnumber
-                    expect(orderbook.asks[0][1]).to.equal(@"1.34491802"); // FIX: should be a nsdecimalnumber
-                    expect(orderbook.asks[1][0]).to.equal(@"5632.25"); // FIX: should be a nsdecimalnumber
-                    expect(orderbook.asks[1][1]).to.equal(@"1.00000000"); // FIX: should be a nsdecimalnumber
+                    expect(orderbook.asks[0][0]).to.beKindOf([NSDecimalNumber class]);
+                    expect(orderbook.asks[0][0]).to.equal(@5632.24);
+                    expect(orderbook.asks[0][1]).to.equal(@1.34491802);
+                    expect(orderbook.asks[1][0]).to.equal(@5632.25);
+                    expect(orderbook.asks[1][1]).to.equal(@1.00000000);
                     done();
                 });
             } failureBlock:^(NSError *error) {
@@ -109,10 +103,6 @@ describe(@"public API tests", ^{
             
         });
     });
-    
-    
-    
-    
     afterAll(^{
         [OHHTTPStubs removeAllStubs];
     });
@@ -230,7 +220,7 @@ describe(@"private API tests", ^{
                     expect(order.oid).to.equal(@"543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v");
                     expect(order.amount).to.beKindOf([NSDecimalNumber class]);
                     expect(order.amount).to.equal(0.01000000);
-                    expect(order.datetime).to.beKindOf([NSDate class]); 
+                    expect(order.datetime).to.beKindOf([NSDate class]);
                     expect(order.price).to.equal(5600.00);
                     done();
                 });

@@ -189,6 +189,7 @@
 		C2F08BB1627C1A1287CF1058B076A8CA /* NSValueTransformer+MTLInversionAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D0169FE925C4A1C179158088B2CCCE /* NSValueTransformer+MTLInversionAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C426A8DB88168582BB6AF9FD6D471A62 /* Pods-Bitso_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEEDAA21AFF5ABE55DD0F9813057669 /* Pods-Bitso_Tests-dummy.m */; };
 		C6354FEC7728A4C86DAD8092509BA7D4 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F08CC1B298D59D5C1E7C1F8587BC036D /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C849DD361D0913ED005F41EA /* BTSPublicOrderModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C849DD341D0913ED005F41EA /* BTSPublicOrderModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9CB08B9B4E1318F73366D0750B0F270 /* OHHTTPStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = 52C4F7279A22E4F2EE14BCB3A16A5314 /* OHHTTPStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAC483EF637FB4A2C2E2FC75BA631B87 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 69A85944B8FB1A899EED9E8C84C7F0BF /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAF122853B325057F69A4450DECA90C4 /* Bitso-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5B6440E16FCC19697D348B70DEB758 /* Bitso-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -537,6 +538,7 @@
 		C4242151DC3B3B81242C6ED5D5F83FEC /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
 		C5DD797FC9D92F70831A29AB6FCA300B /* Pods-Bitso_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bitso_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C7858094BE950603A6DA421E6DD150BD /* EXPMatchers+respondTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+respondTo.h"; path = "Expecta/Matchers/EXPMatchers+respondTo.h"; sourceTree = "<group>"; };
+		C849DD341D0913ED005F41EA /* BTSPublicOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTSPublicOrderModel.h; path = /Users/mariorz/bitsopod/Bitso/Bitso/Classes/BTSPublicOrderModel.h; sourceTree = "<absolute>"; };
 		C854525A4B765A305EA92EECCD193454 /* MTLReflection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLReflection.m; path = Mantle/MTLReflection.m; sourceTree = "<group>"; };
 		C90821AF38F988AB1DCB3ED2ECBF1F69 /* SpectaUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SpectaUtility.m; path = Specta/Specta/SpectaUtility.m; sourceTree = "<group>"; };
 		CA9D9A8EA5AE09D400F5FB7B41A1F754 /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPBlockDefinedMatcher.h; path = Expecta/EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
@@ -1362,6 +1364,7 @@
 				98D9428AE5F6A9A2B5E37821840932FB /* BTSOrderModel.h in Headers */,
 				2A20AAD561485BC9B5E06015A376E1EF /* BTSRequestModel.h in Headers */,
 				95A81E343E178643D5C1579ACC2E8B28 /* BTSTickerModel.h in Headers */,
+				C849DD361D0913ED005F41EA /* BTSPublicOrderModel.h in Headers */,
 				B6B030D1304457136ACCB26B427D751C /* BTSTransactionModel.h in Headers */,
 				F94F8C246C89254BA9054646C1FB9872 /* BTSUserTransactionModel.h in Headers */,
 			);

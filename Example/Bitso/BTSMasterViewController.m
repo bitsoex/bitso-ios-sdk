@@ -10,6 +10,7 @@
 #import "BitsoAPI.h"
 
 
+
 @interface BTSMasterViewController ()
 
 
@@ -404,7 +405,7 @@
              cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.localOrderBook.asks[[indexPath item]][1], self.localOrderBook.asks[[indexPath item]][0]];
              cell.userInteractionEnabled = NO;
          } else {
-             cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.localOrderBook.bids[[indexPath item]][1], self.localOrderBook.bids[[indexPath item]][0]];
+             cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.localOrderBook.bids[[indexPath item]][1], self.localOrderBook.asks[[indexPath item]][0]];
              cell.userInteractionEnabled = NO;
          }
          
