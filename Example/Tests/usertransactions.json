@@ -1,0 +1,23 @@
+[
+    {
+        "datetime": "2015-10-10 16:19:33",
+        "method": "Bitcoin",
+        "btc": "0.48650929",
+        "type": 0
+    },
+    {
+        "datetime": "2015-10-09 13:49:00",
+        "method": "SPEI Transfer",
+        "mxn": "-1800.15",
+        "type": 1
+    },
+    {
+        "btc": "-0.25232073",
+        "datetime": "2015-10-09 13:45:46",
+        "mxn": "1023.77",
+        "rate": "4057.45",
+        "id": 51756,
+        "type": 2,
+        "order_id": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk"
+    }
+]

@@ -28,6 +28,11 @@
 		C849DD221D08D6CC005F41EA /* orderbook.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD211D08D6CC005F41EA /* orderbook.json */; };
 		C849DD231D08D6CC005F41EA /* orderbook.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD211D08D6CC005F41EA /* orderbook.json */; };
 		C849DD251D08D89A005F41EA /* transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD241D08D89A005F41EA /* transactions.json */; };
+		C849DD271D08E044005F41EA /* balance.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD261D08E044005F41EA /* balance.json */; };
+		C849DD291D08E26E005F41EA /* usertransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD281D08E26E005F41EA /* usertransactions.json */; };
+		C849DD2B1D08E871005F41EA /* openorders.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD2A1D08E871005F41EA /* openorders.json */; };
+		C849DD2D1D08EA60005F41EA /* lookuporder.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD2C1D08EA60005F41EA /* lookuporder.json */; };
+		C849DD2F1D08EC4D005F41EA /* btcdeposit.json in Resources */ = {isa = PBXBuildFile; fileRef = C849DD2E1D08EC4D005F41EA /* btcdeposit.json */; };
 		C89EE0621D074CC300B0568B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89EE0611D074CC300B0568B /* AFNetworking.framework */; };
 		C89EE0641D074CE300B0568B /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89EE0631D074CE300B0568B /* Mantle.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +79,11 @@
 		C849DD1E1D08CD75005F41EA /* ticker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ticker.json; sourceTree = "<group>"; };
 		C849DD211D08D6CC005F41EA /* orderbook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderbook.json; sourceTree = "<group>"; };
 		C849DD241D08D89A005F41EA /* transactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions.json; sourceTree = "<group>"; };
+		C849DD261D08E044005F41EA /* balance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = balance.json; sourceTree = "<group>"; };
+		C849DD281D08E26E005F41EA /* usertransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usertransactions.json; sourceTree = "<group>"; };
+		C849DD2A1D08E871005F41EA /* openorders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = openorders.json; sourceTree = "<group>"; };
+		C849DD2C1D08EA60005F41EA /* lookuporder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lookuporder.json; sourceTree = "<group>"; };
+		C849DD2E1D08EC4D005F41EA /* btcdeposit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = btcdeposit.json; sourceTree = "<group>"; };
 		C89EE0611D074CC300B0568B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
 		C89EE0631D074CE300B0568B /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = "Pods/../build/Debug-iphoneos/Mantle/Mantle.framework"; sourceTree = "<group>"; };
 		EDBA9CCBDD7857F967739CAE /* Pods-Bitso_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitso_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bitso_Tests/Pods-Bitso_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +191,11 @@
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C849DD2E1D08EC4D005F41EA /* btcdeposit.json */,
+				C849DD2C1D08EA60005F41EA /* lookuporder.json */,
+				C849DD2A1D08E871005F41EA /* openorders.json */,
+				C849DD281D08E26E005F41EA /* usertransactions.json */,
+				C849DD261D08E044005F41EA /* balance.json */,
 				C849DD241D08D89A005F41EA /* transactions.json */,
 				C849DD211D08D6CC005F41EA /* orderbook.json */,
 				C849DD1E1D08CD75005F41EA /* ticker.json */,
@@ -307,10 +322,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C849DD2B1D08E871005F41EA /* openorders.json in Resources */,
+				C849DD271D08E044005F41EA /* balance.json in Resources */,
 				C849DD201D08CF29005F41EA /* ticker.json in Resources */,
 				C849DD231D08D6CC005F41EA /* orderbook.json in Resources */,
 				C849DD251D08D89A005F41EA /* transactions.json in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+				C849DD2D1D08EA60005F41EA /* lookuporder.json in Resources */,
+				C849DD2F1D08EC4D005F41EA /* btcdeposit.json in Resources */,
+				C849DD291D08E26E005F41EA /* usertransactions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

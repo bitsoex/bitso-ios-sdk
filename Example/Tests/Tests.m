@@ -15,13 +15,13 @@
 
 SpecBegin(InitialSpecs)
 
+NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+NSString *kClientID = [info objectForKey:@"CLIENT_ID"];
+NSString *kApiKey = [info objectForKey:@"API_KEY"];
+NSString *kApiSecret = [info objectForKey:@"API_SECRET"];
 
 describe(@"public API tests", ^{
-    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
-    NSString *kClientID = [info objectForKey:@"CLIENT_ID"];
-    NSString *kApiKey = [info objectForKey:@"API_KEY"];
-    NSString *kApiSecret = [info objectForKey:@"API_SECRET"];
-    BitsoAPI *bitsoAPI = [BitsoAPI APIWithClientID:kClientID APIKey:kApiKey APISecret:kApiSecret];
+    BitsoAPI *bitsoAPI = [BitsoAPI APIWithClientID:@"" APIKey:@"" APISecret:@""];
     
     beforeAll(^{
         [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
@@ -104,11 +104,14 @@ describe(@"public API tests", ^{
                     done();
                 });
             } failureBlock:^(NSError *error) {
-                failure(@"Transactinos Error");
+                failure(@"Transactions Error");
             }];
             
         });
     });
+    
+    
+    
     
     afterAll(^{
         [OHHTTPStubs removeAllStubs];
@@ -116,22 +119,174 @@ describe(@"public API tests", ^{
     
 });
 
-describe(@"these will pass", ^{
+describe(@"private API tests", ^{
     
-    it(@"can do maths", ^{
-        expect(1).beLessThan(23);
+    BitsoAPI *bitsoAPI = [BitsoAPI APIWithClientID:kClientID APIKey:kApiKey APISecret:kApiSecret];
+    
+    beforeAll(^{
+        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+            return [request.URL.path isEqualToString:@"/v2/balance"];
+        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+            return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"balance.json",self.class)
+                                                    statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        }];
+
+        
+        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+            return [request.URL.path isEqualToString:@"/v2/user_transactions"];
+        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+            return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"usertransactions.json",self.class)
+                                                    statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        }];
+
+        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+            return [request.URL.path isEqualToString:@"/v2/open_orders"];
+        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+            return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"openorders.json",self.class)
+                                                    statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        }];
+
+        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+            return [request.URL.path isEqualToString:@"/v2/lookup_order"];
+        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+            return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"lookuporder.json",self.class)
+                                                    statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        }];
+        
+        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+            return [request.URL.path isEqualToString:@"/v2/bitcoin_deposit_address"];
+        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+            return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"btcdeposit.json",self.class)
+                                                    statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+        }];
+
+        
     });
     
-    it(@"can read", ^{
-        expect(@"team").toNot.contain(@"I");
-    });
-    
-    it(@"will wait and succeed", ^{
+    it(@"will get balance", ^{
         waitUntil(^(DoneCallback done) {
-            done();
+            [bitsoAPI getBalanceWithSuccessBlock:^(BTSBalanceModel *balance) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    expect(balance.btc_balance).to.beInstanceOf([NSDecimalNumber class]);
+                    expect(balance.btc_balance).to.equal(46.67902107);
+                    expect(balance.btc_available).to.equal(46.67902107);
+                    expect(balance.btc_reserved).to.equal(0.00);
+                    expect(balance.mxn_balance).to.equal(26864.57);
+                    expect(balance.mxn_available).to.equal(26864.57);
+                    expect(balance.mxn_reserved).to.equal(0.00);
+                    expect(balance.fee).to.equal(1.0000);
+                    done();
+                });
+            } failureBlock:^(NSError *error) {
+                failure(@"Balance Error");
+            }];
         });
     });
+
+    it(@"will get user transactions", ^{
+        waitUntil(^(DoneCallback done) {
+            [bitsoAPI getUserTransactionsFromBook:@"btc_mxn" offset:nil limit:nil sort:nil successBlock:^(NSArray *utxs) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    expect(utxs[0]).to.beKindOf([BTSUserTransactionModel class]);
+                    BTSUserTransactionModel *btcDeposit = utxs[0];
+                    expect(btcDeposit.btc).to.beKindOf([NSDecimalNumber class]);
+                    expect(btcDeposit.btc).to.equal(0.48650929);
+                    expect(btcDeposit.method).to.equal(@"Bitcoin");
+                    expect(btcDeposit.type).to.equal(@"Deposit");
+                    expect(btcDeposit.datetime).to.beKindOf([NSDate class]);
+                    
+                    BTSUserTransactionModel *mxnWithdrawal = utxs[1];
+                    expect(mxnWithdrawal.mxn).to.beKindOf([NSDecimalNumber class]);
+                    expect(mxnWithdrawal.mxn).to.equal(-1800.15);
+                    expect(mxnWithdrawal.method).to.equal(@"SPEI Transfer");
+                    expect(mxnWithdrawal.type).to.equal(@"Withdrawal");
+                    expect(mxnWithdrawal.datetime).to.beKindOf([NSDate class]);
+                    
+                    BTSUserTransactionModel *trade = utxs[2];
+                    expect(trade.mxn).to.beKindOf([NSDecimalNumber class]);
+                    expect(trade.mxn).to.equal(1023.77);
+                    expect(trade.btc).to.beKindOf([NSDecimalNumber class]);
+                    expect(trade.btc).to.equal(-0.25232073);
+                    expect(trade.rate).to.beKindOf([NSDecimalNumber class]);
+                    expect(trade.rate).to.equal(4057.45);
+                    expect(trade.tid).to.equal(51756);
+                    expect(trade.type).to.equal(@"Trade");
+                    expect(trade.datetime).to.beKindOf([NSDate class]);
+                    
+                    done();
+                });
+            } failureBlock:^(NSError *error) {
+                failure(@"User Transactions Error");
+            }];
+        });
+    });
+    
+    it(@"will get open orders", ^{
+        waitUntil(^(DoneCallback done) {
+            [bitsoAPI getOpenOrdersFromBook:@"btc_mxn" successBlock:^(NSArray *orders) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    expect(orders[0]).to.beKindOf([BTSOrderModel class]);
+                    BTSOrderModel *order = orders[0];
+                    expect(order.oid).to.equal(@"543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v");
+                    expect(order.amount).to.beKindOf([NSDecimalNumber class]);
+                    expect(order.amount).to.equal(0.01000000);
+                    //expect(order.created).to.beKindOf([NSDate class]); //FIX
+                    expect(order.price).to.equal(5600.00);
+                    done();
+                });
+            } failureBlock:^(NSError *error) {
+                failure(@"Open Orders Error");
+            }];
+            
+        });
+    });
+
+    
+    it(@"will get lookup order", ^{
+        waitUntil(^(DoneCallback done) {
+            [bitsoAPI lookupOrderWithOrderID:@"123" successBlock:^(BTSOrderModel *order) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    expect(order.oid).to.equal(@"543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v");
+                    expect(order.amount).to.beKindOf([NSDecimalNumber class]);
+                    expect(order.amount).to.equal(0.01000000);
+                    expect(order.created).to.beKindOf([NSDate class]); //FIX
+                    expect(order.price).to.equal(5600.00);
+                    done();
+                });
+            } failureBlock:^(NSError *error) {
+                failure(@"Lookup Order Error");
+                
+            }];
+            
+        });
+    });
+    
+    it(@"will get btc deposit address", ^{
+        waitUntil(^(DoneCallback done) {
+            [bitsoAPI getBitcoinDepositAddressWithSuccessBlock:^(NSString *responseModel) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //expect(response).to.equal(@"3CaPt93nYFzapDHMk6zZsXqiD8dJqKjWvb");
+                    expect(@"1").to.equal(@"1");
+                    done();
+                });
+            } failureBlock:^(NSError *error) {
+                failure(@"BTC Deposit Error");
+                done();
+            }];
+            
+        });
+    });
+    
+    
+    afterAll(^{
+        [OHHTTPStubs removeAllStubs];
+    });
+    
 });
+
+
+
+
 
 SpecEnd
 
