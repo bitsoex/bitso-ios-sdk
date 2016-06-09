@@ -1,6 +1,6 @@
 # Bitso
 
-[![CI Status](http://img.shields.io/travis/Mario Romero/Bitso.svg?style=flat)](https://travis-ci.org/Mario Romero/Bitso)
+
 [![Version](https://img.shields.io/cocoapods/v/Bitso.svg?style=flat)](http://cocoapods.org/pods/Bitso)
 [![License](https://img.shields.io/cocoapods/l/Bitso.svg?style=flat)](http://cocoapods.org/pods/Bitso)
 [![Platform](https://img.shields.io/cocoapods/p/Bitso.svg?style=flat)](http://cocoapods.org/pods/Bitso)
