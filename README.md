@@ -42,36 +42,32 @@ BitsoAPI *bitsoAPI = [BitsoAPI APIWithClientID:CLIENT_ID APIKey:API_KEY APISecre
 #### Ticker
 ```objective-c
 [bitsoAPI getTickerForBook:@"btc_mxn" successBlock:^(BTSTickerModel *ticker) {
-            NSLog(@"Last Price:%@", [ticker.last stringValue])
-        } failureBlock:^(NSError *error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }];
+    NSLog(@"Last Price:%@", [ticker.last stringValue])
+  } failureBlock:^(NSError *error) {
+    NSLog(@"Error: %@ %@", error, [error userInfo]);
+}];
 ```
 #### Transactions
 ```objective-c
 [bitsoAPI getTransactionsFromBook:@"btc_mxn" forTimeRange:@"hour" successBlock:^(NSArray *trades) {
-            for (BitsoTrade* trade in trades)
-            {
-                NSLog(@"amount:%@, side:%@, price:%@", [trade.amount stringValue], trade.side, [trade.price stringValue]);
-            }
-            
-        } failureBlock:^(NSError *error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }];
+    for (BitsoTrade* trade in trades) {
+      NSLog(@"amount:%@, side:%@, price:%@", [trade.amount stringValue], trade.side, [trade.price stringValue]);
+    }
+  } failureBlock:^(NSError *error) {
+    NSLog(@"Error: %@ %@", error, [error userInfo]);
+}];
 ```
 
 #### Order Book
 
 ```objective-c
- [bitsoAPI getOrderBook:@"btc_mxn" withGrouping:YES successBlock:^(BTSOrderBookModel *orderbook) {
-            for (NSArray *ask in orderbook.asks) {
-               NSLog(@"%@ @ %@", [ask[1] stringValue], [ask[0] stringValue]);
-            }
-            
-        } failureBlock:^(NSError *error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            
-        }];
+[bitsoAPI getOrderBook:@"btc_mxn" withGrouping:YES successBlock:^(BTSOrderBookModel *orderbook) {
+    for (NSArray *ask in orderbook.asks) {
+      NSLog(@"%@ @ %@", [ask[1] stringValue], [ask[0] stringValue]);
+    }
+  } failureBlock:^(NSError *error) {
+    NSLog(@"Error: %@ %@", error, [error userInfo]);
+}];
 ```
 
 ### Private Endpoints
@@ -79,34 +75,32 @@ BitsoAPI *bitsoAPI = [BitsoAPI APIWithClientID:CLIENT_ID APIKey:API_KEY APISecre
 #### Balance
 ```objective-c
 [bitsoAPI getBalanceWithSuccessBlock:^(BTSBalanceModel *balance) {
-            NSLog(@"BTC balance:%@", [balance.btc_balance stringValue]);
-        } failureBlock:^(NSError *error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }];
+    NSLog(@"BTC balance:%@", [balance.btc_balance stringValue]);
+  } failureBlock:^(NSError *error) {
+    NSLog(@"Error: %@ %@", error, [error userInfo]);
+}];
 ```
 
 #### User Transactions
 ```objective-c
- [bitsoAPI getUserTransactionsFromBook:@"btc_mxn" offset:nil limit:nil sort:nil successBlock:^(NSArray *utxs) {
-            for (BitsoUserTransaction* transaction in utxs)
-            {
-                NSLog(@"datetime:%@", [transaction.datetime stringValue]);
-            }
-        } failureBlock:^(NSError *error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }];
+[bitsoAPI getUserTransactionsFromBook:@"btc_mxn" offset:nil limit:nil sort:nil successBlock:^(NSArray *utxs) {
+    for (BitsoUserTransaction* transaction in utxs) {
+      NSLog(@"datetime:%@", [transaction.datetime stringValue]);
+    }
+  } failureBlock:^(NSError *error) {
+    NSLog(@"Error: %@ %@", error, [error userInfo]);
+}];
 ```
 
 #### Open Orders
 ```objective-c
- [bitsoAPI getOpenOrdersFromBook:@"btc_mxn" successBlock:^(NSArray *orders) {
-            for (BTSOrderModel *order in orders)
-            {
-                NSLog(@"oid:%@", transaction.oid);
-            }
-        } failureBlock:^(NSError *error) {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }];
+[bitsoAPI getOpenOrdersFromBook:@"btc_mxn" successBlock:^(NSArray *orders) {
+    for (BTSOrderModel *order in orders) {
+      NSLog(@"oid:%@", transaction.oid);
+    }
+  } failureBlock:^(NSError *error) {
+      NSLog(@"Error: %@ %@", error, [error userInfo]);
+}];
 ```
 
 #### Lookup Order
