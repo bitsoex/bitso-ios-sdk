@@ -38,7 +38,7 @@
         for (NSMutableArray *order in value) {
             NSMutableArray *numbersArray = [NSMutableArray array];
             for (NSDecimalNumber *number in order) {
-                [numbersArray addObject:[value stringValue]];
+                [numbersArray addObject:[number stringValue]];
                 
             }
             [asksArray addObject:numbersArray];
@@ -66,7 +66,7 @@
         for (NSMutableArray *order in value) {
             NSMutableArray *numbersArray = [NSMutableArray array];
             for (NSDecimalNumber *number in order) {
-                [numbersArray addObject:[value stringValue]];
+                [numbersArray addObject:[number stringValue]];
                 
             }
             [bidsArray addObject:numbersArray];
