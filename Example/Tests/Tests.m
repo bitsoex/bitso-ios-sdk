@@ -143,13 +143,6 @@ describe(@"private API tests", ^{
                                                     statusCode:200 headers:@{@"Content-Type":@"application/json"}];
         }];
         
-        /*[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-            return [request.URL.path isEqualToString:@"/v2/bitcoin_deposit_address"];
-        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-            return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"btcdeposit.json",self.class)
-                                                    statusCode:200 headers:@{@"Content-Type":@"text/plain"}];
-        }];*/
-
         
     });
     
@@ -251,22 +244,7 @@ describe(@"private API tests", ^{
         });
     });
     
-    it(@"will get btc deposit address", ^{
-        waitUntil(^(DoneCallback done) {
-            [bitsoAPI getBitcoinDepositAddressWithSuccessBlock:^(NSString *response) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    expect(response).to.beKindOf([NSString class]);
-                    //expect(response).to.equal(@"3CaPt93nYFzapDHMk6zZsXqiD8dJqKjWvb");
-                    done();
-                });
-            } failureBlock:^(NSError *error) {
-                failure(@"BTC Deposit Error");
-                done();
-            }];
-            
-        });
-    });
-    
+        
     
     afterAll(^{
         [OHHTTPStubs removeAllStubs];

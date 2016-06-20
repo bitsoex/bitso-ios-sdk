@@ -174,10 +174,13 @@
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 @autoreleasepool {
                     NSLog(@"response model: %@", responseModel);
-                    
-                    self.btcAddresses = [[NSMutableArray alloc] init];
-                    [self.btcAddresses addObject:responseModel];
-
+                    // responseModel should be string on success
+                    // on error dict is passed as response model
+                    // due to lack of appropiate http satus codes
+                    if(![responseModel isKindOfClass:[NSDictionary class]]) {
+                        self.btcAddresses = [[NSMutableArray alloc] init];
+                        [self.btcAddresses addObject:responseModel];
+                    }
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.tableView reloadData];
@@ -327,14 +330,18 @@
         return [self.localOpenOrders count];
     } else if ([incomingSegue isEqualToString:@"Bitcoin Deposit"]) {
         //NSLog(@"btcAddresses counts: %lu", (unsigned long)[self.btcAddresses count]);
-        return [self.btcAddresses count];
+        return 1;
     } else if ([incomingSegue isEqualToString:@"Ticker"]) {
 
         return [self.tickerKeys count];
 
     } else if ([incomingSegue isEqualToString:@"Orderbook"]) {
-        return 12;
-        
+        if (section==0) {
+            return [self.localOrderBook.asks count];
+        } else if (section==1) {
+            return [self.localOrderBook.bids count];
+        }
+        return 0;
     } else if ([incomingSegue isEqualToString:@"Balance"]) {
         return [self.balanceKeys count];
         
@@ -404,9 +411,11 @@
          if (indexPath.section==0) {
              cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.localOrderBook.asks[[indexPath item]][1], self.localOrderBook.asks[[indexPath item]][0]];
              cell.userInteractionEnabled = NO;
+             
          } else {
-             cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.localOrderBook.bids[[indexPath item]][1], self.localOrderBook.asks[[indexPath item]][0]];
+             cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", self.localOrderBook.bids[[indexPath item]][1], self.localOrderBook.bids[[indexPath item]][0]];
              cell.userInteractionEnabled = NO;
+             
          }
          
      }  else if ([incomingSegue isEqualToString:@"Balance"]) {
