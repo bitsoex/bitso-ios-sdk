@@ -61,6 +61,7 @@ static NSString *const kBankWithdrawalPath = @"/v2/spei_withdrawal";
 
 }
 
+#pragma mark - Public Endpoints
 
 - (NSURLSessionDataTask *)getTickerForBook:(NSString *)book successBlock:(void (^)(BTSTickerModel *responseModel))success failureBlock:(void (^)(NSError *error))failure {
     
@@ -129,7 +130,7 @@ static NSString *const kBankWithdrawalPath = @"/v2/spei_withdrawal";
 }
     
 
-
+#pragma mark - Private Endpoints
 
 - (NSURLSessionDataTask *)getBalanceWithSuccessBlock:(void (^)(BTSBalanceModel *responseModel))success failureBlock:(void (^)(NSError *error))failure{
     
