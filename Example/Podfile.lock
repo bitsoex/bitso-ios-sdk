@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - Bitso (0.1.0):
+  - Bitso (0.1.1):
     - AFNetworking
     - Mantle
   - Expecta (1.0.5)
@@ -50,7 +50,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Bitso: 1c6e94050e11adb2b76b04b88bc6abb513f91528
+  Bitso: c5606e67b20e5a03ab7bc141fab555558d37d419
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   OHHTTPStubs: 592f74439d2d72615115cf99a954237a3fbe26e5
@@ -58,4 +58,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 460251c5f229c355858b59a856cb20f9ff186241
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

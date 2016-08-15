@@ -1,6 +1,6 @@
 {
   "name": "Bitso",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "Bitso iOS SDK",
   "description": "Bitcoin Wallet and Exchange integration for iOS apps with Bitso.",
   "homepage": "https://github.com/bitsoex/bitso-ios-sdk",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/bitsoex/bitso-ios-sdk.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"
