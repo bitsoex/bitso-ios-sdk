@@ -33,8 +33,9 @@ Carthage
 # Pods/
 *~
 #fastlane
-fastlane/report.xml
-fastlane/test_output/report.html
-fastlane/test_output/*
-
-info.plist
+Example/fastlane/report.xml
+Example/fastlane/test_output/report.html
+Example/fastlane/test_output/*
+Example/Logs/
+Example/ModuleCache/
+Example/info.plist
