@@ -409,7 +409,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bitso_Example/Pods-Bitso_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bitso_Example/Pods-Bitso_Example-frameworks.sh\"\n\"${SRCROOT}/Pods/Target Support Files/Pods-Bitso_Tests/Pods-Bitso_Tests-frameworks.sh\"";
 			showEnvVarsInLog = 0;
 		};
 		F97020184D0A500760831D44 /* [CP] Copy Pods Resources */ = {
