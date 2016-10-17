@@ -181,6 +181,80 @@ BitsoAPI *bitsoAPI = [BitsoAPI APIWithClientID:CLIENT_ID APIKey:API_KEY APISecre
 }];
 ```
 
+
+# Models #
+
+The SDK uses the following models to represent data structures returned by the Bitso API. 
+
+### BTSTickerModel
+Atribute | Type | Description | Units
+------------ | ------------- | ------------- | -------------
+ask | NSDecimalNumber | Lowest sell order | Minor/Major
+bid | NSDecimalNumber | Highest buy order | Minor/Major
+last | NSDecimalNumber | Last traded price | Minor/Major
+high | NSDecimalNumber | Last 24 hours price high | Minor/Major
+low | NSDecimalNumber | Last 24 hours price low | Minor/Major
+vwap | NSDecimalNumber | Last 24 hours price high | Minor/Major
+volume | NSDecimalNumber | Last 24 hours volume | Major
+date | NSDate | Ticker current datetime | 
+
+
+### BTSOrderBookModel
+Atribute | Type | Description | Units
+------------ | ------------- | ------------- | -------------
+asks | NSArray | Array of open asks | Minor/Major
+bids | NSArray | Array of open bids | Minor/Major
+date | NSDate | OrderBook current datetime | 
+
+
+### BTSBalanceModel
+Atribute | Type | Description | Units
+------------ | ------------- | ------------- | -------------
+btc_balance | NSDecimalNumber | BTC balance | BTC
+btc_available | NSDecimalNumber | BTC available for trading (balance - reserved) | BTC
+btc_reserved | NSDecimalNumber | BTC locked in open orders | BTC
+mxn_balance | NSDecimalNumber | MXN balance | MXN
+mxn_available | NSDecimalNumber | MXN available for trading (balance - reserved) | MXN
+mxn_reserved | NSDecimalNumber | MXN locked in open orders | MXN
+fee | NSDecimalNumber | NSDecimalNumber trading fee as a percentage | 
+
+
+### BTSTransactionModel
+Atribute | Type | Description | Units
+------------ | ------------- | ------------- | -------------
+tid | NSNumber | Transaction ID | 
+amount | NSDecimalNumber | Major amount transacted | Major
+price | NSDecimalNumber | Price per unit of major | Minor
+side | NSString | Indicates the maker order side (maker order is the order that was open on the order book) | 
+date | NSDate | Date/Time for this trade
+
+
+### BTSUserTransactionModel
+Atribute | Type | Description | Units
+------------ | ------------- | ------------- | -------------
+tid | NSNumber | Unique identifier (only for trades) | 
+method | NSString | Transaction type ('deposit', 'withdrawal', 'trade') |
+oid | NSString | A 64 character long hexadecimal string representing the order that was fully or partially filled (only for trades) | 
+rate | NSDecimalNumber | Price per minor (only for trades) | Minor
+datetime | NSDate | Date and time | 
+(minor currency code) | NSDecimalNumber | The minor currency amount | Minor
+(major currency code) | NSDecimalNumber | The major currency amount | Major 
+
+
+### bitso.Order
+
+Atribute | Type | Description | Units
+------------ | ------------- | ------------- | -------------
+oid | NSString | The Order ID | 
+type | NSString | Order Type ('buy','sell') | 
+book | NSString | Which orderbook the order belongs to (not shown when status = 0) | 
+amount | NSDecimalNumber | The order’s major currency amounts | Major
+price | NSDecimalNumber | The order’s price | Minor
+status | NSString | The order’s status ('cancelled', 'active','partially filled', 'complete') | 
+datetime | NSDate | The date the order was created | 
+updated | NSDate | The date the order was last updated (not shown when status = 0) | 
+
+
 ## Author
 
 Mario Romero, mario@bitso.com
