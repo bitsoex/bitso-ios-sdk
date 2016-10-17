@@ -241,7 +241,7 @@ datetime | NSDate | Date and time |
 (major currency code) | NSDecimalNumber | The major currency amount | Major 
 
 
-### bitso.Order
+### BTSOrderModel
 
 Atribute | Type | Description | Units
 ------------ | ------------- | ------------- | -------------
