@@ -1,4 +1,8 @@
-# Bitso
+# Bitso - *ARCHIVED*
+
+This repository is no longer being maintained.
+
+***
 
 
 [![Version](https://img.shields.io/cocoapods/v/Bitso.svg?style=flat)](http://cocoapods.org/pods/Bitso)
